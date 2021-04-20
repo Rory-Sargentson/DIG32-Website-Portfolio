@@ -1,0 +1,411 @@
+/* Primary Colors = #30475E; blue / #f05454; salmon color / #222831; dark blue color / #DDDDDD; light grey */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	transition: all .3s;
+
+}
+::selection {
+   background-color: blue;
+   color: #fff;
+}
+body {
+	min-height: 100vh;
+	width: 100%;
+	background-color: #222831; /*dark blue color*/
+	overflow: auto;
+  font-family: 'Varela Round', sans-serif;
+	line-height: 1.6;
+}
+/* start navar section */
+.navbar a{
+	font-family: 'Lato', sans-serif;
+	padding-top: 5px;
+	font-size: 20pt;
+	color: #FFF;
+	text-decoration: none;
+	font-weight: 600;
+}
+.nav-img{
+	background-color: none;
+}
+/*Coyier, Chris. "Overriding The Default Text Selection Color With CSS." Css Tricks, July 26, 2016. https://css-tricks.com/overriding-the-default-text-selection-color-with-css.*/
+.container-nav{
+  width: 100%;
+  height: 10vh;
+  position: absolute;
+}
+.hamburger-menu{
+  width: 35px;
+  height: 30px;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.line{
+  width: 100%;
+  height: 3px;
+  background-color: red;/*magenta*/
+  transition: all 0.9s;
+}
+.change .line-1{ /* rotation of the burger icon */
+  transform: rotateZ(-405deg) translate(-8px, 6px);
+}
+.change .line-2{
+  opacity: 0;
+}
+.change .line-3{
+  transform: rotateZ(405deg) translate(-8px, -6px);
+}
+.navbar{
+  z-index: 100;
+  width: 600px;
+  height: 100%;
+  background-repeat: no-repeat;
+  position: fixed;
+  background-color: #f05454; /*salmon color*/
+  top: 0;
+  bottom: 300px;
+  right: -600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: right .5s cubic-bezier(1, 0, 0, 1);
+}
+.change{
+  right: 0;
+}
+.nav-links{
+  text-align: right;
+}
+.nav-item{
+  list-style: none;
+  margin: 25px;
+}
+.nav-link{
+  text-decoration: none;
+  font-size: 30px;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+.nav-link::before{
+}
+.nav-link::after{
+  content: "";
+  width: 100%;
+  height: 5px;
+  background-color: #FF00FF;
+  position: absolute;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+.nav-link::after{
+  bottom: 0;
+  transform-origin: right;
+}
+.nav-link::before{
+  top: 0;
+  transform-origin: left;
+}
+.nav-link:hover::before{
+}
+.nav-link:hover::after{
+  transform: scaleX(1);
+}
+/*Code And Create. 2019. Hamburger Menu with HTML, CSS, and JavaScript / Cool Hover Effects with ::after and ::before. YouTube video, 21:25. https://www.youtube.com/watch?v=BN6fH1nRDxA.*/
+/*end hamburger navbar section*/
+
+
+/* start section snapping code */
+section {
+	height: 100vh;
+}
+
+span {
+	display: inline-block;
+	font-size: 2em;
+	margin: 32px;
+	opacity: 0;
+	transition: all 0.5s;
+	transition-delay: 0.2s;
+}
+.snap-scroll-visible span {
+	margin-top: 16px;
+	opacity: 1;
+}
+/* Code reproduced from https://www.jqueryscript.net/animation/Snap-To-Section-SnapScroll.html */
+/* end section snapping code */
+
+/* start header section */
+.top-header {
+	padding-bottom: 100vh;
+	width: 100%;
+	background-image: url("../img/profile/desk.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.top-header h1 {
+	font-size: 180pt;
+	padding-top: 5vh;
+	text-align: center;
+	width: 100%;
+	font-weight: 600;
+	color: blue;
+	/*light grey*/
+
+}
+.top-header p {
+	font-size: 30pt;
+	font-weight: 80;
+	text-align: center;
+	padding-top: 5vh;
+	color: #DDDDDD;
+	/*light grey*/
+}
+.marquee{
+	-ms-transform: skewY(10deg);
+  transform: skewY(10deg);
+}
+/* end header */
+
+/* start profile section */
+.profile{
+	background-color: red;
+}
+.rory-img {
+	width: 100%;
+	height: auto;
+	border-radius: 5%;
+	perspective: 150px;
+}
+
+/* design 1 start The Students Cup */
+
+.design-1-container {
+	margin-top: 900px;
+	padding-top: 200px;
+}
+
+.design-1 {
+	height: 200px;
+	color: #FFF;
+	/*light grey*/
+	-ms-transform: skewY(10deg);
+	transform: skewY(10deg);
+}
+
+.design-1 h1 {
+	font-size: 50pt;
+}
+.design-1 p {
+	font-size: 12pt;
+	line-height: 1.9;
+	padding-top: 20px;
+}
+.design-1-img img { /* phone image */
+	-ms-transform: skewY(-10deg);
+	transform: skewY(-10deg);
+
+}
+.design-1-img img:hover { /* phone image */
+	transform: scale(1.2);
+	transition: 0.2s;
+}
+.design-grid{ /* image grid */
+	margin-top: 900px;
+	padding-top: 85px;
+}
+.col-sm-4:hover{
+	transform: scale(1.5);
+	transition: 0.2s;
+	z-index: 1;
+}
+.text-light{
+	text-align: center;
+	font-size: 14pt;
+	margin-top: 8px;
+}
+/* design 1 end */
+
+.prog-bar-section{
+	padding-top:400vh;
+}
+.footer {
+	margin-top: 600px;
+	padding-bottom: 100px;
+	background-color: #181818;
+	/*dark grey color*/
+	color: #DDDDDD;
+}
+.footer ul{
+  list-style: none;
+}
+.behance{
+  float: left;
+}
+.behance:hover{
+  transform: scale(1.2);
+	transition: 0.2s;
+  padding:20px;
+}
+.netlify{
+  float: center;
+}
+.netlify:hover{
+  transform: scale(1.2);
+	transition: 0.2s;
+  padding:20px;
+}
+.github:hover{
+  transform: scale(1.2);
+	transition: 0.2s;
+  padding:20px;
+}
+
+
+
+/* start responsive design - media queries for a mobile first design */
+@media only screen and (max-width: 600px) {
+	body {
+		width: 100%;
+		background-color: lightblue; /*dark blue color*/
+		overflow: auto;
+	  font-family: 'Varela Round', sans-serif;
+	}
+
+	.top-header {
+		background-color: red;
+	}
+
+	.top-header h1 {
+		font-size: 60pt;
+		padding-top: 20px;
+		color: #DDDDDD;
+		text-align: center;
+		/*light grey*/
+	}
+
+	.top-header p {
+		font-size: 30pt;
+		font-weight: 100;
+		text-align: center;
+		padding-top: 10vh;
+		color: #DDDDDD;
+		/*light grey*/
+	}
+
+	.rory-img {
+		width: 100%;
+		height: auto;
+		border-radius: 5%;
+		perspective: 150px;
+	}
+
+	/* design 1 start */
+
+	.design-1-container { /* The Students Cup */
+		margin-top: 900px;
+		padding-top: 200px;
+	}
+
+	.design-1 {
+		height: 200px;
+		color: #FFF;
+		/*light grey*/
+	}
+
+	.design-1 h1 {
+		font-size: 50pt;
+	}
+
+	.design-1-img img { /* phone image */
+		cursor: crosshair;
+		border: none;
+	}
+
+	.design-1-img img:hover { /* phone image */
+		transform: scale(1.2);
+		transition: 0.2s;
+	}
+	/* design 1 end */
+
+	.prog-bar-section{
+		padding-top:100vh;
+	}
+
+	.footer {
+		padding-bottom: 100px;
+		background-color: #181818;
+		/*dark grey color*/
+		color: #DDDDDD;
+	}
+	.footer ul{
+	  list-style: none;
+	}
+	.behance{
+		width: 40%;
+	}
+	.behance:hover{
+	  transform: scale(1.5);
+		transition: 0.2s;
+	  padding:20px;
+	}
+	.netlify{
+		width: 40%;
+	}
+	.netlify:hover{
+	  transform: scale(1.2);
+		transition: 0.2s;
+	  padding:20px;
+	}
+	.github{
+		width: 40%;
+	}
+	.github:hover{
+	  transform: scale(1.2);
+		transition: 0.2s;
+	  padding:20px;
+	}
+
+	/* design 1 start */
+
+	.design-1-container { /* The Students Cup */
+		padding-top: 20px;
+	}
+
+	.design-1 {
+		padding-top: 10px;
+		text-align: center;
+		color: #FFF;
+		/*light grey*/
+	}
+
+	.design-1 h1 {
+		font-size: 30pt;
+	}
+
+	.design-1-img img { /* phone image */
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.design-1-img img:hover { /* phone image */
+		transform: scale(1.1);
+		transition: 0.2s;
+	}
+	.col-sm-4:hover{
+		transform: scale(1.1);
+		transition: 0.2s;
+		z-index: 1;
+	}
+	/* design 1 end */
+}
