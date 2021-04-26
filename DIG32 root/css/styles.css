@@ -1,411 +1,2751 @@
-/* Primary Colors = #30475E; blue / #f05454; salmon color / #222831; dark blue color / #DDDDDD; light grey */
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	transition: all .3s;
-
+/* Primary Colors = #30475E;
+ blue / #f05454;
+ salmon color / #222831;
+ dark blue color / #DDDDDD;
+ light grey */
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     cursor: none;
+     transition: all 0.5s;
 }
-::selection {
-   background-color: blue;
-   color: #fff;
+ ::selection {
+     background-color: #0066ff;
+     color: #ffff00;
 }
-body {
-	min-height: 100vh;
-	width: 100%;
-	background-color: #222831; /*dark blue color*/
-	overflow: auto;
-  font-family: 'Varela Round', sans-serif;
-	line-height: 1.6;
+ body {
+     min-height: 100vh;
+     width: 100%;
+     background-color: #222831;
+    /*dark blue color*/
+     overflow: auto;
+     font-family: 'Varela Round', sans-serif;
+     line-height: 1.6;
+     color: #FFF;
 }
+ #circularcursor {
+     position: absolute;
+     width: 15px;
+     height: 15px;
+     background: #fff;
+     border-radius: 50%;
+    /*transform: translate3d(-100%, -90%);
+     */
+     z-index: 2;
+     mix-blend-mode: difference;
+     transition: transform .2s;
+}
+/* Marquise, Mathew. 2021. "Inverted Circular Cursor." Codepen. https://codepen.io/mattmarquise/pen/yLVjmOW. */
 /* start navar section */
-.navbar a{
-	font-family: 'Lato', sans-serif;
-	padding-top: 5px;
-	font-size: 20pt;
-	color: #FFF;
-	text-decoration: none;
-	font-weight: 600;
+ .navbar a{
+     font-family: 'Lato', sans-serif;
+     line-height: 100%;
+     font-size: 18pt;
+     color: #FFF;
+     text-decoration: none;
+     font-weight: 600;
 }
-.nav-img{
-	background-color: none;
+ .container-nav{
+     width: 100%;
+     height: 10vh;
+     position: absolute;
+     z-index: 1;
 }
-/*Coyier, Chris. "Overriding The Default Text Selection Color With CSS." Css Tricks, July 26, 2016. https://css-tricks.com/overriding-the-default-text-selection-color-with-css.*/
-.container-nav{
-  width: 100%;
-  height: 10vh;
-  position: absolute;
+ .hamburger-menu{
+     background-color: #f05454;
+     width: 35px;
+     height: 30px;
+     position: fixed;
+     top: 50px;
+     right: 50px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     border-radius: 10%;
 }
-.hamburger-menu{
-  width: 35px;
-  height: 30px;
-  position: fixed;
-  top: 50px;
-  right: 50px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+ .line{
+     width: 100%;
+     height: 3px;
+     background-color: #dddddd;
+     transition: all 0.9s;
 }
-.line{
-  width: 100%;
-  height: 3px;
-  background-color: red;/*magenta*/
-  transition: all 0.9s;
+ .change .line-1{
+    /* rotation of the burger icon */
+     transform: rotateZ(-405deg) translate(-8px, 6px);
+     background-color: #222831;
 }
-.change .line-1{ /* rotation of the burger icon */
-  transform: rotateZ(-405deg) translate(-8px, 6px);
+ .change .line-2{
+     opacity: 0;
 }
-.change .line-2{
-  opacity: 0;
+ .change .line-3{
+     transform: rotateZ(405deg) translate(-8px, -6px);
+     background-color: #222831;
 }
-.change .line-3{
-  transform: rotateZ(405deg) translate(-8px, -6px);
+ .navbar{
+     background-image: url("../img/profile/gradient.png");
+    /*figure 1. Rory Sargentson, menu Background. 2021, Digital image. */
+     background-repeat: no-repeat;
+     background-size: contain;
+     position: fixed;
+     box-shadow: 10px 10px 5px 10px #000;
+     z-index: 100;
+     width: 600px;
+     height: 100%;
+     background-repeat: no-repeat;
+     position: fixed;
+     background-color: #f05454;
+    /*salmon color*/
+     top: 0;
+     bottom: 300px;
+     right: -600px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: right .5s cubic-bezier(1, 0, 0, 1);
 }
-.navbar{
-  z-index: 100;
-  width: 600px;
-  height: 100%;
-  background-repeat: no-repeat;
-  position: fixed;
-  background-color: #f05454; /*salmon color*/
-  top: 0;
-  bottom: 300px;
-  right: -600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: right .5s cubic-bezier(1, 0, 0, 1);
+ .change{
+     right: 0;
 }
-.change{
-  right: 0;
+ .nav-links{
+     text-align: right;
 }
-.nav-links{
-  text-align: right;
+ .nav-item{
+     list-style: none;
+     margin: 25px;
 }
-.nav-item{
-  list-style: none;
-  margin: 25px;
+ .nav-link{
+     text-decoration: none;
+     font-size: 30px;
+     color:#FFF;
+     letter-spacing: 10px;
+     text-transform: uppercase;
+     position: relative;
 }
-.nav-link{
-  text-decoration: none;
-  font-size: 30px;
-  color: #FFFFFF;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  position: relative;
+ .nav-link::before{
 }
-.nav-link::before{
+ .nav-link::after{
+     content: "";
+     width: 100%;
+     height: 5px;
+     border-radius: 5%;
+     background-color: #dddddd;
+     position: absolute;
+     left: 0;
+     transform: scaleX(0);
+     transition: transform 0.5s;
 }
-.nav-link::after{
-  content: "";
-  width: 100%;
-  height: 5px;
-  background-color: #FF00FF;
-  position: absolute;
-  left: 0;
-  transform: scaleX(0);
-  transition: transform 0.5s;
+ .nav-link::after{
+     bottom: 0;
+     transform-origin: right;
 }
-.nav-link::after{
-  bottom: 0;
-  transform-origin: right;
+ .nav-link::before{
+     top: 0;
+     transform-origin: left;
 }
-.nav-link::before{
-  top: 0;
-  transform-origin: left;
+ .nav-link:hover::before{
 }
-.nav-link:hover::before{
-}
-.nav-link:hover::after{
-  transform: scaleX(1);
+ .nav-link:hover::after{
+     transform: scaleX(1);
 }
 /*Code And Create. 2019. Hamburger Menu with HTML, CSS, and JavaScript / Cool Hover Effects with ::after and ::before. YouTube video, 21:25. https://www.youtube.com/watch?v=BN6fH1nRDxA.*/
 /*end hamburger navbar section*/
-
-
 /* start section snapping code */
-section {
-	height: 100vh;
+ section {
+     height: 150vh;
 }
-
-span {
-	display: inline-block;
-	font-size: 2em;
-	margin: 32px;
-	opacity: 0;
-	transition: all 0.5s;
-	transition-delay: 0.2s;
+ span {
+     display: inline-block;
+     font-size: 2em;
+     margin: 32px;
+     opacity: 0;
+     transition: all 0.5s;
 }
-.snap-scroll-visible span {
-	margin-top: 16px;
-	opacity: 1;
+ .snap-scroll-visible span {
+     margin-top: 16px;
+     opacity: 1;
 }
-/* Code reproduced from https://www.jqueryscript.net/animation/Snap-To-Section-SnapScroll.html */
 /* end section snapping code */
-
 /* start header section */
-.top-header {
-	padding-bottom: 100vh;
-	width: 100%;
-	background-image: url("../img/profile/desk.png");
-	background-repeat: no-repeat;
-	background-size: contain;
+ .top-header {
+     padding-bottom: 100vh;
+     width: 100%;
+     background: linear-gradient(290deg, #222831, #f05454);
+     background-size: 400% 400%;
+     -webkit-animation: AnimationName 10s ease infinite;
+     -moz-animation: AnimationName 10s ease infinite;
+     animation: AnimationName 10s ease infinite;
 }
-.top-header h1 {
-	font-size: 180pt;
-	padding-top: 5vh;
-	text-align: center;
-	width: 100%;
-	font-weight: 600;
-	color: blue;
-	/*light grey*/
-
+ @-webkit-keyframes AnimationName {
+     0%{
+        background-position:19% 0%
+    }
+     50%{
+        background-position:82% 100%
+    }
+     100%{
+        background-position:19% 0%
+    }
 }
-.top-header p {
-	font-size: 30pt;
-	font-weight: 80;
-	text-align: center;
-	padding-top: 5vh;
-	color: #DDDDDD;
-	/*light grey*/
+ @-moz-keyframes AnimationName {
+     0%{
+        background-position:19% 0%
+    }
+     50%{
+        background-position:82% 100%
+    }
+     100%{
+        background-position:19% 0%
+    }
 }
-.marquee{
-	-ms-transform: skewY(10deg);
-  transform: skewY(10deg);
+ @keyframes AnimationName {
+     0%{
+        background-position:19% 0%
+    }
+     50%{
+        background-position:82% 100%
+    }
+     100%{
+        background-position:19% 0%
+    }
+    /* background-image: url("../img/profile/desk.png");
+     */
+    /* Figure 2. Rory Sargentson. 2021. "Desk Photo." Personal Image. */
+}
+ .logo-img{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+}
+ .top-header p {
+     font-size: 30pt;
+     text-align: center;
+     padding-top: 20px;
+     color: #DDDDDD;
+    /*light grey*/
 }
 /* end header */
-
 /* start profile section */
-.profile{
-	background-color: red;
+ .profile{
+     background: linear-gradient(to top left, #222831 50%, #f05454 100%);
 }
-.rory-img {
-	width: 100%;
-	height: auto;
-	border-radius: 5%;
-	perspective: 150px;
+ .profile h1{
+     color: #FFF;
+     font-size: 50pt;
+     padding-top: 5vh;
+     padding-left: 10vh;
 }
-
+ .profile h4{
+     color: #FFF;
+     font-size: 12pt;
+     line-height: 1.9;
+     width: 40%;
+     padding-left: 10vh;
+     margin-right: 0;
+}
+ .email-txt{
+     float: right;
+     display: block;
+     margin-left: 50vh;
+}
+ .side-txt p{
+     font-size: 30pt;
+     padding-left: 20px;
+     margin-right: 500px;
+     transform: rotate(-90deg);
+     transform-origin: left top 0;
+}
+ .rory-img {
+     display: block;
+     margin-top: -400px;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+}
+ .r0ry-img:hover{
+}
+ .bio-section{
+     padding-top: 5vh;
+}
+ .bio-section h2{
+     text-align: center;
+     font-weight: bold;
+     background-color: #DDDDDD;
+     color: #222831;
+}
+ .bio-section p{
+     text-align: center;
+     padding-right: 10px;
+     padding-right: 10px;
+}
+ .bio-section img{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+}
+ .art-img-1{
+     background-image: url("../img/profile/cards-logo.png");
+    /* Sargentson, Rory. 2021. "Business Cards Mockup." Personal Image. */
+     background-repeat: no-repeat;
+     background-size: contain;
+     z-index: -1;
+     position: relative;
+     margin-top: -300px;
+}
+/* end bio section */
 /* design 1 start The Students Cup */
-
-.design-1-container {
-	margin-top: 900px;
-	padding-top: 200px;
+ .design-1-bg{
+     background-color: #DDDDDD;
 }
-
-.design-1 {
-	height: 200px;
-	color: #FFF;
-	/*light grey*/
-	-ms-transform: skewY(10deg);
-	transform: skewY(10deg);
+ .design-1-bg h1{
+     color: #222831;
 }
-
-.design-1 h1 {
-	font-size: 50pt;
+ .design-1-bg h2{
+     color: #222831;
 }
-.design-1 p {
-	font-size: 12pt;
-	line-height: 1.9;
-	padding-top: 20px;
+ .design-1-bg p{
+     color: #222831;
 }
-.design-1-img img { /* phone image */
-	-ms-transform: skewY(-10deg);
-	transform: skewY(-10deg);
-
+ .design-1-container {
+     margin-top: 900px;
+     padding-top: 200px;
 }
-.design-1-img img:hover { /* phone image */
-	transform: scale(1.2);
-	transition: 0.2s;
+ .design-1 {
+     height: 200px;
 }
-.design-grid{ /* image grid */
-	margin-top: 900px;
-	padding-top: 85px;
+ .design-1 ul{
+     color: #222831;
 }
-.col-sm-4:hover{
-	transform: scale(1.5);
-	transition: 0.2s;
-	z-index: 1;
+ .design-1 h1 {
+     font-size: 50pt;
 }
-.text-light{
-	text-align: center;
-	font-size: 14pt;
-	margin-top: 8px;
+ .design-1 p {
+     font-size: 12pt;
+     line-height: 1.9;
+     padding-top: 20px;
 }
+ .design-1-img img {
+    /* phone image */
+}
+ .design-1-img img:hover {
+    /* phone image */
+     transform: scale(1.2);
+     transition: 0.2s;
+}
+ .design-grid{
+    /* image grid */
+     height: 100vh;
+     margin-top: 900px;
+     padding-top: 120px;
+}
+ .col-sm-4:hover{
+     transform: scale(1.5);
+     transition: 0.2s;
+     z-index: 1;
+}
+ .text-light{
+     text-align: center;
+     font-size: 14pt;
+     margin-top: 8px;
+}
+ .invision-icon {
+     animation: bounce 2s infinite alternate;
+     -webkit-animation: bounce 1.5s infinite alternate;
+}
+ @keyframes bounce {
+     from {
+         transform: translateY(0px);
+    }
+     to {
+         transform: translateY(-50px);
+    }
+}
+ @-webkit-keyframes bounce {
+     from {
+         transform: translateY(0px);
+    }
+     to {
+         transform: translateY(-50px);
+    }
+}
+/* Persijin. 2015, "CSS smooth bounce animation." Stack Overflow. https://stackoverflow.com/questions/32306089/css-smooth-bounce-animation */
 /* design 1 end */
-
-.prog-bar-section{
-	padding-top:400vh;
+/*start design 2 */
+ .design-2-b{
+     background-color: #30475E;
 }
-.footer {
-	margin-top: 600px;
-	padding-bottom: 100px;
-	background-color: #181818;
-	/*dark grey color*/
-	color: #DDDDDD;
+ .design-2-container {
+     margin-top: 900px;
+     padding-top: 200px;
 }
-.footer ul{
-  list-style: none;
+ .design-2 {
+     height: 200px;
+     color: #FFF;
 }
-.behance{
-  float: left;
+ .design-2 h1 {
+     font-size: 50pt;
 }
-.behance:hover{
-  transform: scale(1.2);
-	transition: 0.2s;
-  padding:20px;
+ .design-2 p {
+     font-size: 12pt;
+     line-height: 1.9;
+     padding-top: 20px;
 }
-.netlify{
-  float: center;
+ .design-2-img img {
+    /* ipad image */
 }
-.netlify:hover{
-  transform: scale(1.2);
-	transition: 0.2s;
-  padding:20px;
+ .design-2-img img:hover {
+    /* ipad image */
+     transform: scale(1.2);
+     transition: 0.2s;
 }
-.github:hover{
-  transform: scale(1.2);
-	transition: 0.2s;
-  padding:20px;
+ .design-2-end{
 }
-
-
-
+ .oua.bg{
+     width: 100%;
+     opacity: 50%;
+     z-index: -1;
+}
+ .ipad-img{
+     margin-left: 50px;
+}
+ .inv-btn:hover{
+     transform: scale(1.2);
+     transition: 0.2s;
+}
+/* design 2 end */
+/*start design 3 kitsune */
+ .design-3-bg{
+     background: linear-gradient(to top left, #9900cc 0%, #6666ff 100%);
+}
+ .design-3-container {
+     margin-top: 900px;
+     padding-top: 200px;
+}
+ .design-3 {
+     height: 200px;
+     color: #FFF;
+}
+ .design-3 h1 {
+     font-size: 50pt;
+}
+ .design-3 p {
+     font-size: 12pt;
+     line-height: 1.9;
+     padding-top: 20px;
+}
+ .design-3-img img {
+    /* phone image */
+}
+ .design-3-img img:hover {
+    /* phone image */
+     transform: scale(1.2);
+     transition: 0.2s;
+}
+ .ktn-top-collab img{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+     padding-bottom: 50px;
+}
+ .ktn-top-collab img:hover{
+     transform: scale(1.5);
+     transition: 0.2s;
+}
+ .ktn-collab img{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+}
+ .ktn-collab img:hover{
+     transform: scale(1.5);
+     transition: 0.2s;
+}
+ .h2-sml{
+     font-size: 10pt;
+     padding-top:20px;
+}
+ .netlify-icon {
+     animation: bounce 2s infinite alternate;
+     -webkit-animation: bounce 1.5s infinite alternate;
+}
+ @keyframes bounce {
+     from {
+         transform: translateX(5px);
+    }
+     to {
+         transform: translateX(-25px);
+    }
+}
+ @keyframes bounce {
+     from {
+         transform: translateY(0px);
+    }
+     to {
+         transform: translateY(-50px);
+    }
+}
+ @-webkit-keyframes bounce {
+     from {
+         transform: translateY(0px);
+    }
+     to {
+         transform: translateY(-50px);
+    }
+}
+/* end design 3 */
+/*start design 4 shizen mask co */
+ .smc-bg{
+     background: linear-gradient(to top right, #003399 3%, #6699ff 47%);
+}
+ .design-4-bg h1{
+     color: #FFF;
+}
+ .design-4-bg h2{
+     color: #FFF;
+}
+ .design-4-bg p{
+     color: #FFF;
+}
+ .design-4-container {
+     margin-top: 900px;
+     padding-top: 200px;
+}
+ .design-4-container h2 {
+     padding-top: 15px;
+}
+ .design-4 {
+     height: 200px;
+}
+ .design-4 ul{
+     color: #FFF;
+}
+ .design-4 h1 {
+     font-size: 50pt;
+}
+ .design-4 p {
+     font-size: 12pt;
+     line-height: 1.9;
+     padding-top: 20px;
+}
+ .design-4-img svg {
+     margin-top: -10vh;
+    /* mask image */
+}
+ .design-grid-4{
+     height: 100vh;
+     margin-top: 900px;
+     padding-top: 160px;
+}
+ .design-4-img svg:hover {
+    /* phone image */
+     transform: scale(1.2);
+     transition: 0.2s;
+}
+ .design-grid-4{
+    /* image grid */
+     height: 150vh;
+     margin-top: 900px;
+     padding-top: 120px;
+}
+ .design-grid-4 p {
+     color: #222831;
+}
+ .col-sm-4:hover{
+     transform: scale(1.5);
+     transition: 0.2s;
+     z-index: 1;
+}
+ .text-light{
+     text-align: center;
+     font-size: 14pt;
+     margin-top: 8px;
+}
+ .smc-collab img{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+}
+ .smc-collab img{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+}
+ .smc-collab img:hover{
+     transform: scale(1.5);
+     transition: 0.2s;
+}
+ .smc-collab-2 img{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+}
+ .smc-collab-2 img:hover{
+     transform: scale(1.3);
+     transition: 0.2s;
+}
+ .smc-top-collab img{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+     padding-bottom: 50px;
+}
+ .smc-top-collab h1{
+     padding-top: 20px;
+}
+/* design 4 end */
+/*start design 5 section */
+/* design 1 start cg */
+ .design-5-bg{
+     background: linear-gradient(to bottom right, #ff6699 -7%, #6600cc 105%);
+}
+ .design-5-container {
+     margin-top: 100vh;
+     padding-top: 200px;
+}
+ .design-5 {
+     height: 200px;
+}
+ .design-5 h1 {
+     font-size: 50pt;
+}
+ .design-5 p {
+     font-size: 12pt;
+     line-height: 1.9;
+     padding-top: 20px;
+}
+ .design-5-img img {
+    /* phone image */
+}
+ .design-5-img img:hover {
+    /* phone image */
+     transform: scale(1.2);
+     transition: 0.2s;
+}
+ .design-grid-cg{
+    /* image grid */
+     height: 100vh;
+     margin-top: 900px;
+     padding-top: 220px;
+}
+ .design-grid-cg-2{
+    /* image grid */
+     height: 100vh;
+     margin-top: 900px;
+     padding-top: 220px;
+}
+ .col-sm-4:hover{
+     transform: scale(1.5);
+     transition: 0.2s;
+     z-index: 1;
+}
+ .text-light{
+     text-align: center;
+     font-size: 14pt;
+     margin-top: 8px;
+}
+ .behance-icon {
+     animation: bounce 2s infinite alternate;
+     -webkit-animation: bounce 1.5s infinite alternate;
+}
+ @keyframes bounce {
+     from {
+         transform: translateY(0px);
+    }
+     to {
+         transform: translateY(-50px);
+    }
+}
+ @-webkit-keyframes bounce {
+     from {
+         transform: translateY(0px);
+    }
+     to {
+         transform: translateY(-50px);
+    }
+}
+/* Persijin. 2015, "CSS smooth bounce animation." Stack Overflow. https://stackoverflow.com/questions/32306089/css-smooth-bounce-animation */
+/* design 5 end */
+/* contact section */
+ .contact-container {
+     padding-top: 200px;
+     height: 100vh;
+     padding-left: 5vh;
+     text-decoration: none;
+     background: linear-gradient(290deg, #222831, #f05454);
+     background-size: 400% 400%;
+     *{
+        box-sizing:border-box;
+        margin:0;
+        padding:0;
+        cursor:none;
+        transition:all .5s
+    }
+    ::selection{
+        background-color:#06f;
+        color:#ff0
+    }
+    body{
+        min-height:100vh;
+        width:100%;
+        background-color:#222831;
+        overflow:auto;
+        font-family:'Varela Round',sans-serif;
+        line-height:1.6;
+        color:#fff
+    }
+    #circularcursor{
+        position:absolute;
+        width:15px;
+        height:15px;
+        background:#fff;
+        border-radius:50%;
+        z-index:2;
+        mix-blend-mode:difference;
+        transition:transform .2s
+    }
+    .navbar a{
+        font-family:Lato,sans-serif;
+        line-height:100%;
+        font-size:18pt;
+        color:#fff;
+        text-decoration:none;
+        font-weight:600
+    }
+    .container-nav{
+        width:100%;
+        height:10vh;
+        position:absolute;
+        z-index:1
+    }
+    .hamburger-menu{
+        background-color:#f05454;
+        width:35px;
+        height:30px;
+        position:fixed;
+        top:50px;
+        right:50px;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-around;
+        border-radius:10%
+    }
+    .line{
+        width:100%;
+        height:3px;
+        background-color:#ddd;
+        transition:all .9s
+    }
+    .change .line-1{
+        transform:rotateZ(-405deg) translate(-8px,6px);
+        background-color:#222831
+    }
+    .change .line-2{
+        opacity:0
+    }
+    .change .line-3{
+        transform:rotateZ(405deg) translate(-8px,-6px);
+        background-color:#222831
+    }
+    .navbar{
+        background-image:url(../img/profile/gradient.png);
+        background-repeat:no-repeat;
+        background-size:contain;
+        position:fixed;
+        box-shadow:10px 10px 5px 10px #000;
+        z-index:100;
+        width:600px;
+        height:100%;
+        background-repeat:no-repeat;
+        position:fixed;
+        background-color:#f05454;
+        top:0;
+        bottom:300px;
+        right:-600px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        transition:right .5s cubic-bezier(1,0,0,1)
+    }
+    .change{
+        right:0
+    }
+    .nav-links{
+        text-align:right
+    }
+    .nav-item{
+        list-style:none;
+        margin:25px
+    }
+    .nav-link{
+        text-decoration:none;
+        font-size:30px;
+        color:#fff;
+        letter-spacing:10px;
+        text-transform:uppercase;
+        position:relative
+    }
+    .nav-link::after{
+        content:"";
+        width:100%;
+        height:5px;
+        border-radius:5%;
+        background-color:#ddd;
+        position:absolute;
+        left:0;
+        transform:scaleX(0);
+        transition:transform .5s
+    }
+    .nav-link::after{
+        bottom:0;
+        transform-origin:right
+    }
+    .nav-link::before{
+        top:0;
+        transform-origin:left
+    }
+    .nav-link:hover::after{
+        transform:scaleX(1)
+    }
+    section{
+        height:150vh
+    }
+    span{
+        display:inline-block;
+        font-size:2em;
+        margin:32px;
+        opacity:0;
+        transition:all .5s
+    }
+    .snap-scroll-visible span{
+        margin-top:16px;
+        opacity:1
+    }
+    .top-header{
+        padding-bottom:100vh;
+        width:100%;
+        background:linear-gradient(290deg,#222831,#f05454);
+        background-size:400% 400%;
+        -webkit-animation:AnimationName 10s ease infinite;
+        -moz-animation:AnimationName 10s ease infinite;
+        animation:AnimationName 10s ease infinite
+    }
+    @-webkit-keyframes AnimationName{
+        0%{
+            background-position:19% 0
+        }
+        50%{
+            background-position:82% 100%
+        }
+        100%{
+            background-position:19% 0
+        }
+    }
+    @-moz-keyframes AnimationName{
+        0%{
+            background-position:19% 0
+        }
+        50%{
+            background-position:82% 100%
+        }
+        100%{
+            background-position:19% 0
+        }
+    }
+    @keyframes AnimationName{
+        0%{
+            background-position:19% 0
+        }
+        50%{
+            background-position:82% 100%
+        }
+        100%{
+            background-position:19% 0
+        }
+    }
+    .logo-img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width:100%
+    }
+    .top-header p{
+        font-size:30pt;
+        text-align:center;
+        padding-top:20px;
+        color:#ddd
+    }
+    .profile{
+        background:linear-gradient(to top left,#222831 50%,#f05454 100%)
+    }
+    .profile h1{
+        color:#fff;
+        font-size:50pt;
+        padding-top:5vh;
+        padding-left:10vh
+    }
+    .profile h4{
+        color:#fff;
+        font-size:12pt;
+        line-height:1.9;
+        width:40%;
+        padding-left:10vh;
+        margin-right:0
+    }
+    .email-txt{
+        float:right;
+        display:block;
+        margin-left:50vh
+    }
+    .side-txt p{
+        font-size:30pt;
+        padding-left:20px;
+        margin-right:500px;
+        transform:rotate(-90deg);
+        transform-origin:left top 0
+    }
+    .rory-img{
+        display:block;
+        margin-top:-400px;
+        margin-left:auto;
+        margin-right:auto;
+        width:100%
+    }
+    .bio-section{
+        padding-top:5vh
+    }
+    .bio-section h2{
+        text-align:center;
+        font-weight:700;
+        background-color:#ddd;
+        color:#222831
+    }
+    .bio-section p{
+        text-align:center;
+        padding-right:10px;
+        padding-right:10px
+    }
+    .bio-section img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width:100%
+    }
+    .art-img-1{
+        background-image:url(../img/profile/cards-logo.png);
+        background-repeat:no-repeat;
+        background-size:contain;
+        z-index:-1;
+        position:relative;
+        margin-top:-300px
+    }
+    .design-1-bg{
+        background-color:#ddd
+    }
+    .design-1-bg h1{
+        color:#222831
+    }
+    .design-1-bg h2{
+        color:#222831
+    }
+    .design-1-bg p{
+        color:#222831
+    }
+    .design-1-container{
+        margin-top:900px;
+        padding-top:200px
+    }
+    .design-1{
+        height:200px
+    }
+    .design-1 ul{
+        color:#222831
+    }
+    .design-1 h1{
+        font-size:50pt
+    }
+    .design-1 p{
+        font-size:12pt;
+        line-height:1.9;
+        padding-top:20px
+    }
+    .design-1-img img:hover{
+        transform:scale(1.2);
+        transition:.2s
+    }
+    .design-grid{
+        height:100vh;
+        margin-top:900px;
+        padding-top:120px
+    }
+    .col-sm-4:hover{
+        transform:scale(1.5);
+        transition:.2s;
+        z-index:1
+    }
+    .text-light{
+        text-align:center;
+        font-size:14pt;
+        margin-top:8px
+    }
+    .invision-icon{
+        animation:bounce 2s infinite alternate;
+        -webkit-animation:bounce 1.5s infinite alternate
+    }
+    @keyframes bounce{
+        from{
+            transform:translateY(0)
+        }
+        to{
+            transform:translateY(-50px)
+        }
+    }
+    @-webkit-keyframes bounce{
+        from{
+            transform:translateY(0)
+        }
+        to{
+            transform:translateY(-50px)
+        }
+    }
+    .design-2-b{
+        background-color:#30475e
+    }
+    .design-2-container{
+        margin-top:900px;
+        padding-top:200px
+    }
+    .design-2{
+        height:200px;
+        color:#fff
+    }
+    .design-2 h1{
+        font-size:50pt
+    }
+    .design-2 p{
+        font-size:12pt;
+        line-height:1.9;
+        padding-top:20px
+    }
+    .design-2-img img:hover{
+        transform:scale(1.2);
+        transition:.2s
+    }
+    .oua.bg{
+        width:100%;
+        opacity:50%;
+        z-index:-1
+    }
+    .ipad-img{
+        margin-left:50px
+    }
+    .inv-btn:hover{
+        transform:scale(1.2);
+        transition:.2s
+    }
+    .design-3-bg{
+        background:linear-gradient(to top left,#90c 0,#66f 100%)
+    }
+    .design-3-container{
+        margin-top:900px;
+        padding-top:200px
+    }
+    .design-3{
+        height:200px;
+        color:#fff
+    }
+    .design-3 h1{
+        font-size:50pt
+    }
+    .design-3 p{
+        font-size:12pt;
+        line-height:1.9;
+        padding-top:20px
+    }
+    .design-3-img img:hover{
+        transform:scale(1.2);
+        transition:.2s
+    }
+    .ktn-top-collab img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width:100%;
+        padding-bottom:50px
+    }
+    .ktn-top-collab img:hover{
+        transform:scale(1.5);
+        transition:.2s
+    }
+    .ktn-collab img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width:100%
+    }
+    .ktn-collab img:hover{
+        transform:scale(1.5);
+        transition:.2s
+    }
+    .h2-sml{
+        font-size:10pt;
+        padding-top:20px
+    }
+    .netlify-icon{
+        animation:bounce 2s infinite alternate;
+        -webkit-animation:bounce 1.5s infinite alternate
+    }
+    @keyframes bounce{
+        from{
+            transform:translateX(5px)
+        }
+        to{
+            transform:translateX(-25px)
+        }
+    }
+    @keyframes bounce{
+        from{
+            transform:translateY(0)
+        }
+        to{
+            transform:translateY(-50px)
+        }
+    }
+    @-webkit-keyframes bounce{
+        from{
+            transform:translateY(0)
+        }
+        to{
+            transform:translateY(-50px)
+        }
+    }
+    .smc-bg{
+        background:linear-gradient(to top right,#039 3%,#69f 47%)
+    }
+    .design-4-bg h1{
+        color:#fff
+    }
+    .design-4-bg h2{
+        color:#fff
+    }
+    .design-4-bg p{
+        color:#fff
+    }
+    .design-4-container{
+        margin-top:900px;
+        padding-top:200px
+    }
+    .design-4-container h2{
+        padding-top:15px
+    }
+    .design-4{
+        height:200px
+    }
+    .design-4 ul{
+        color:#fff
+    }
+    .design-4 h1{
+        font-size:50pt
+    }
+    .design-4 p{
+        font-size:12pt;
+        line-height:1.9;
+        padding-top:20px
+    }
+    .design-4-img svg{
+        margin-top:-10vh
+    }
+    .design-grid-4{
+        height:100vh;
+        margin-top:900px;
+        padding-top:160px
+    }
+    .design-4-img svg:hover{
+        transform:scale(1.2);
+        transition:.2s
+    }
+    .design-grid-4{
+        height:150vh;
+        margin-top:900px;
+        padding-top:120px
+    }
+    .design-grid-4 p{
+        color:#222831
+    }
+    .col-sm-4:hover{
+        transform:scale(1.5);
+        transition:.2s;
+        z-index:1
+    }
+    .text-light{
+        text-align:center;
+        font-size:14pt;
+        margin-top:8px
+    }
+    .smc-collab img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width:100%
+    }
+    .smc-collab img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width:100%
+    }
+    .smc-collab img:hover{
+        transform:scale(1.5);
+        transition:.2s
+    }
+    .smc-collab-2 img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width:100%
+    }
+    .smc-collab-2 img:hover{
+        transform:scale(1.3);
+        transition:.2s
+    }
+    .smc-top-collab img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width:100%;
+        padding-bottom:50px
+    }
+    .smc-top-collab h1{
+        padding-top:20px
+    }
+    .design-5-bg{
+        background:linear-gradient(to bottom right,#f69 -7%,#60c 105%)
+    }
+    .design-5-container{
+        margin-top:100vh;
+        padding-top:200px
+    }
+    .design-5{
+        height:200px
+    }
+    .design-5 h1{
+        font-size:50pt
+    }
+    .design-5 p{
+        font-size:12pt;
+        line-height:1.9;
+        padding-top:20px
+    }
+    .design-5-img img:hover{
+        transform:scale(1.2);
+        transition:.2s
+    }
+    .design-grid-cg{
+        height:100vh;
+        margin-top:900px;
+        padding-top:220px
+    }
+    .design-grid-cg-2{
+        height:100vh;
+        margin-top:900px;
+        padding-top:220px
+    }
+    .col-sm-4:hover{
+        transform:scale(1.5);
+        transition:.2s;
+        z-index:1
+    }
+    .text-light{
+        text-align:center;
+        font-size:14pt;
+        margin-top:8px
+    }
+    .behance-icon{
+        animation:bounce 2s infinite alternate;
+        -webkit-animation:bounce 1.5s infinite alternate
+    }
+    @keyframes bounce{
+        from{
+            transform:translateY(0)
+        }
+        to{
+            transform:translateY(-50px)
+        }
+    }
+    @-webkit-keyframes bounce{
+        from{
+            transform:translateY(0)
+        }
+        to{
+            transform:translateY(-50px)
+        }
+    }
+    .contact-container{
+        padding-top:200px;
+        height:100vh;
+        padding-left:5vh;
+        text-decoration:none;
+        background:linear-gradient(290deg,#222831,#f05454);
+        background-size:400% 400%;
+        -webkit-animation:AnimationName 10s ease infinite;
+        -moz-animation:AnimationName 10s ease infinite;
+        animation:AnimationName 10s ease infinite
+    }
+    @-webkit-keyframes AnimationName{
+        0%{
+            background-position:19% 0
+        }
+        50%{
+            background-position:82% 100%
+        }
+        100%{
+            background-position:19% 0
+        }
+    }
+    @-moz-keyframes AnimationName{
+        0%{
+            background-position:19% 0
+        }
+        50%{
+            background-position:82% 100%
+        }
+        100%{
+            background-position:19% 0
+        }
+    }
+    @keyframes AnimationName{
+        0%{
+            background-position:19% 0
+        }
+        50%{
+            background-position:82% 100%
+        }
+        100%{
+            background-position:19% 0
+        }
+    }
+    .behance:hover{
+        transform:scale(1.2);
+        transition:.2s;
+        padding:20px
+    }
+    .netlify:hover{
+        transform:scale(1.2);
+        transition:.2s;
+        padding:20px
+    }
+    .github:hover{
+        transform:scale(1.2);
+        transition:.2s;
+        padding:20px
+    }
+    @media only screen and (max-width:768px){
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+            cursor:none;
+            transition:all .5s
+        }
+        body{
+            min-height:100vh;
+            width:100%;
+            background-color:#222831;
+            overflow:auto;
+            font-family:'Varela Round',sans-serif;
+            line-height:1.6;
+            color:#fff
+        }
+        #circularcursor{
+            position:absolute;
+            width:15px;
+            height:15px;
+            background:#fff;
+            border-radius:50%;
+            z-index:2;
+            mix-blend-mode:difference;
+            transition:transform .2s
+        }
+        .navbar a{
+            font-family:Lato,sans-serif;
+            line-height:100%;
+            font-size:16pt;
+            color:#fff;
+            text-decoration:none;
+            font-weight:600
+        }
+        .container-nav{
+            width:100%;
+            height:10vh;
+            position:absolute;
+            z-index:1
+        }
+        .hamburger-menu{
+            background-color:#f05454;
+            width:35px;
+            height:30px;
+            position:fixed;
+            top:50px;
+            right:50px;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-around;
+            border-radius:10%
+        }
+        .line{
+            width:100%;
+            height:3px;
+            background-color:#ddd;
+            transition:all .9s
+        }
+        .change .line-1{
+            transform:rotateZ(-405deg) translate(-8px,6px);
+            background-color:#222831
+        }
+        .change .line-2{
+            opacity:0
+        }
+        .change .line-3{
+            transform:rotateZ(405deg) translate(-8px,-6px);
+            background-color:#222831
+        }
+        .navbar{
+            background-image:url(../img/profile/gradient.png);
+            background-repeat:no-repeat;
+            background-size:contain;
+            position:fixed;
+            box-shadow:10px 10px 5px 10px #000;
+            z-index:100;
+            width:600px;
+            height:100%;
+            background-repeat:no-repeat;
+            position:fixed;
+            background-color:#f05454;
+            top:0;
+            bottom:300px;
+            right:-600px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            transition:right .5s cubic-bezier(1,0,0,1)
+        }
+        .change{
+            right:0
+        }
+        .nav-links{
+            text-align:right
+        }
+        .nav-item{
+            list-style:none;
+            margin:25px
+        }
+        .nav-link{
+            text-decoration:none;
+            font-size:30px;
+            color:#fff;
+            letter-spacing:10px;
+            text-transform:uppercase;
+            position:relative
+        }
+        .nav-link::after{
+            content:"";
+            width:100%;
+            height:5px;
+            border-radius:5%;
+            background-color:#ddd;
+            position:absolute;
+            left:0;
+            transform:scaleX(0);
+            transition:transform .5s
+        }
+        .nav-link::after{
+            bottom:0;
+            transform-origin:right
+        }
+        .nav-link::before{
+            top:0;
+            transform-origin:left
+        }
+        .nav-link:hover::after{
+            transform:scaleX(1)
+        }
+        section{
+            height:100vh
+        }
+        span{
+            display:inline-block;
+            font-size:2em;
+            margin:32px;
+            opacity:0;
+            transition:all .5s
+        }
+        .snap-scroll-visible span{
+            margin-top:16px;
+            opacity:1
+        }
+        .top-header{
+            padding-bottom:100vh;
+            width:100%;
+            background:linear-gradient(290deg,#222831,#f05454);
+            background-size:400% 400%;
+            -webkit-animation:AnimationName 10s ease infinite;
+            -moz-animation:AnimationName 10s ease infinite;
+            animation:AnimationName 10s ease infinite
+        }
+        @-webkit-keyframes AnimationName{
+            0%{
+                background-position:19% 0
+            }
+            50%{
+                background-position:82% 100%
+            }
+            100%{
+                background-position:19% 0
+            }
+        }
+        @-moz-keyframes AnimationName{
+            0%{
+                background-position:19% 0
+            }
+            50%{
+                background-position:82% 100%
+            }
+            100%{
+                background-position:19% 0
+            }
+        }
+        @keyframes AnimationName{
+            0%{
+                background-position:19% 0
+            }
+            50%{
+                background-position:82% 100%
+            }
+            100%{
+                background-position:19% 0
+            }
+        }
+        .logo-img{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            width:100%
+        }
+        .top-header p{
+            font-size:20pt;
+            text-align:center;
+            padding-top:20px;
+            color:#ddd
+        }
+        .profile{
+            background:linear-gradient(to top left,#222831 50%,#f05454 100%)
+        }
+        .profile h1{
+            color:#fff;
+            font-size:30pt;
+            padding-top:5vh;
+            padding-left:10vh
+        }
+        .profile h4{
+            color:#fff;
+            font-size:10pt;
+            line-height:1.9;
+            width:50%;
+            margin-right:0
+        }
+        .rory-img{
+            display:block;
+            margin-top:-400px;
+            margin-left:auto;
+            margin-right:auto;
+            float:right;
+            width:50%;
+            height:50%
+        }
+        .bio-section{
+            padding-top:1vh
+        }
+        .bio-section h2{
+            font-size:10pt;
+            text-align:center;
+            font-weight:700;
+            background-color:#ddd;
+            color:#222831
+        }
+        .bio-section p{
+            text-align:center;
+            font-size:10pt;
+            padding-right:10px;
+            padding-right:10px
+        }
+        .bio-section img{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            width:100%
+        }
+        .design-1-bg{
+            background-color:#ddd
+        }
+        .design-1-bg h1{
+            color:#222831
+        }
+        .design-1-bg h2{
+            color:#222831
+        }
+        .design-1-bg p{
+            color:#222831
+        }
+        .design-1-container{
+            margin-top:500px
+        }
+        .design-1{
+            height:600px
+        }
+        .design-1 ul{
+            color:#222831
+        }
+        .design-1 h1{
+            font-size:30pt
+        }
+        .design-1 p{
+            font-size:10pt;
+            line-height:1.9;
+            padding-top:20px
+        }
+        .design-1-img img:hover{
+            transform:scale(1.2);
+            transition:.2s
+        }
+        .design-grid{
+            height:100vh;
+            margin-top:900px;
+            padding-top:120px
+        }
+        .col-sm-4:hover{
+            transform:scale(1.5);
+            transition:.2s;
+            z-index:1
+        }
+        .text-light{
+            text-align:center;
+            font-size:14pt;
+            margin-top:8px
+        }
+        .invision-icon{
+            animation:bounce 2s infinite alternate;
+            -webkit-animation:bounce 1.5s infinite alternate
+        }
+        @keyframes bounce{
+            from{
+                transform:translateY(0)
+            }
+            to{
+                transform:translateY(-50px)
+            }
+        }
+        @-webkit-keyframes bounce{
+            from{
+                transform:translateY(0)
+            }
+            to{
+                transform:translateY(-50px)
+            }
+        }
+        .design-2-b{
+            background-color:#30475e
+        }
+        .design-2-container{
+            margin-top:900px
+        }
+        .design-2{
+            height:200px;
+            color:#fff
+        }
+        .design-2 h1{
+            font-size:30pt
+        }
+        .design-2 p{
+            font-size:10pt;
+            line-height:1.9;
+            padding-top:20px
+        }
+        .design-2-img img{
+            width:50%
+        }
+        .design-2-img img:hover{
+            transform:scale(1.2);
+            transition:.2s
+        }
+        .oua.bg{
+            width:100%;
+            opacity:50%;
+            z-index:-1
+        }
+        .ipad-img{
+            margin-left:50px
+        }
+        .inv-btn:hover{
+            transform:scale(1.2);
+            transition:.2s
+        }
+        .design-3-bg{
+            background:linear-gradient(to top left,#90c 0,#66f 100%)
+        }
+        .design-3-container{
+            margin-top:900px
+        }
+        .design-3{
+            height:200px;
+            color:#fff
+        }
+        .design-3 h1{
+            font-size:30pt
+        }
+        .design-3 p{
+            font-size:10pt;
+            line-height:1.9;
+            padding-top:20px
+        }
+        .design-3-img img:hover{
+            transform:scale(1.2);
+            transition:.2s
+        }
+        .ktn-top-collab img{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            width:100%;
+            padding-bottom:50px
+        }
+        .ktn-top-collab img:hover{
+            transform:scale(1.5);
+            transition:.2s
+        }
+        .ktn-collab img{
+            display:flex;
+            margin-left:auto;
+            margin-right:auto;
+            width:10%;
+            height:10%
+        }
+        .ktn-collab img:hover{
+            transform:scale(1.5);
+            transition:.2s
+        }
+        .h2-sml{
+            font-size:10pt;
+            padding-top:20px
+        }
+        .netlify-icon{
+            animation:bounce 2s infinite alternate;
+            -webkit-animation:bounce 1.5s infinite alternate
+        }
+        @keyframes bounce{
+            from{
+                transform:translateX(5px)
+            }
+            to{
+                transform:translateX(-25px)
+            }
+        }
+        @keyframes bounce{
+            from{
+                transform:translateY(0)
+            }
+            to{
+                transform:translateY(-50px)
+            }
+        }
+        @-webkit-keyframes bounce{
+            from{
+                transform:translateY(0)
+            }
+            to{
+                transform:translateY(-50px)
+            }
+        }
+        .smc-bg{
+            background:linear-gradient(to top right,#039 3%,#69f 47%)
+        }
+        .design-4-bg h1{
+            color:#fff
+        }
+        .design-4-bg h2{
+            color:#fff
+        }
+        .design-4-bg p{
+            color:#fff
+        }
+        .design-4-container{
+            margin-top:900px
+        }
+        .design-4-container h2{
+            font-size:10pt;
+            padding-top:15px
+        }
+        .design-4{
+            height:200px
+        }
+        .design-4 ul{
+            color:#fff
+        }
+        .design-4 h1{
+            font-size:30pt
+        }
+        .design-4 p{
+            font-size:10pt;
+            line-height:1.9;
+            padding-top:20px
+        }
+        .design-4-img svg{
+            margin-top:-10vh
+        }
+        .design-grid-4{
+            height:100vh;
+            margin-top:900px;
+            padding-top:160px
+        }
+        .design-4-img svg:hover{
+            transform:scale(1.2);
+            transition:.2s
+        }
+        .design-grid-4{
+            height:100vh;
+            margin-top:900px;
+            padding-top:120px
+        }
+        .design-grid-4 p{
+            color:#222831
+        }
+        .col-sm-4:hover{
+            transform:scale(1.5);
+            transition:.2s;
+            z-index:1
+        }
+        .text-light{
+            text-align:center;
+            font-size:10pt;
+            margin-top:8px
+        }
+        .smc-collab img{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            width:100%
+        }
+        .smc-collab img{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            width:100%
+        }
+        .smc-collab img:hover{
+            transform:scale(1.5);
+            transition:.2s
+        }
+        .smc-collab-2 img{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            width:100%
+        }
+        .smc-collab-2 img:hover{
+            transform:scale(1.3);
+            transition:.2s
+        }
+        .smc-top-collab img{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            width:100%;
+            padding-bottom:50px
+        }
+        .smc-top-collab h1{
+            padding-top:20px
+        }
+        .design-5-bg{
+            background:linear-gradient(to bottom right,#f69 -7%,#60c 105%)
+        }
+        .design-5-container{
+            margin-top:100vh;
+            padding-top:200px
+        }
+        .design-5 h1{
+            font-size:30pt
+        }
+        .design-5 p{
+            font-size:10pt;
+            line-height:1.9;
+            padding-top:20px
+        }
+        .design-5-img img:hover{
+            transform:scale(1.2);
+            transition:.2s
+        }
+        .design-grid-cg{
+            height:100vh;
+            margin-top:900px;
+            padding-top:220px
+        }
+        .design-grid-cg-2{
+            height:100vh;
+            margin-top:900px;
+            padding-top:220px
+        }
+        .col-sm-4:hover{
+            transform:scale(1.5);
+            transition:.2s;
+            z-index:1
+        }
+        .text-light{
+            text-align:center;
+            font-size:14pt;
+            margin-top:8px
+        }
+        .behance-icon{
+            animation:bounce 2s infinite alternate;
+            -webkit-animation:bounce 1.5s infinite alternate
+        }
+        @keyframes bounce{
+            from{
+                transform:translateY(0)
+            }
+            to{
+                transform:translateY(-50px)
+            }
+        }
+        @-webkit-keyframes bounce{
+            from{
+                transform:translateY(0)
+            }
+            to{
+                transform:translateY(-50px)
+            }
+        }
+        .contact-container{
+            padding-top:200px;
+            padding-left:5vh;
+            text-decoration:none;
+            background:linear-gradient(290deg,#222831,#f05454);
+            background-size:400% 400%;
+            -webkit-animation:AnimationName 10s ease infinite;
+            -moz-animation:AnimationName 10s ease infinite;
+            animation:AnimationName 10s ease infinite
+        }
+        @-webkit-keyframes AnimationName{
+            0%{
+                background-position:19% 0
+            }
+            50%{
+                background-position:82% 100%
+            }
+            100%{
+                background-position:19% 0
+            }
+        }
+        @-moz-keyframes AnimationName{
+            0%{
+                background-position:19% 0
+            }
+            50%{
+                background-position:82% 100%
+            }
+            100%{
+                background-position:19% 0
+            }
+        }
+        @keyframes AnimationName{
+            0%{
+                background-position:19% 0
+            }
+            50%{
+                background-position:82% 100%
+            }
+            100%{
+                background-position:19% 0
+            }
+        }
+        .behance:hover{
+            transform:scale(1.2);
+            transition:.2s;
+            padding:20px
+        }
+        .netlify:hover{
+            transform:scale(1.2);
+            transition:.2s;
+            padding:20px
+        }
+        .github:hover{
+            transform:scale(1.2);
+            transition:.2s;
+            padding:20px
+        }
+    }
+     -webkit-animation: AnimationName 10s ease infinite;
+     -moz-animation: AnimationName 10s ease infinite;
+     animation: AnimationName 10s ease infinite;
+}
+ @-webkit-keyframes AnimationName {
+     0%{
+        background-position:19% 0%
+    }
+     50%{
+        background-position:82% 100%
+    }
+     100%{
+        background-position:19% 0%
+    }
+}
+ @-moz-keyframes AnimationName {
+     0%{
+        background-position:19% 0%
+    }
+     50%{
+        background-position:82% 100%
+    }
+     100%{
+        background-position:19% 0%
+    }
+}
+ @keyframes AnimationName {
+     0%{
+        background-position:19% 0%
+    }
+     50%{
+        background-position:82% 100%
+    }
+     100%{
+        background-position:19% 0%
+    }
+}
+/* end contact section */
+ .behance:hover{
+     transform: scale(1.2);
+     transition: 0.2s;
+     padding:20px;
+}
+ .netlify:hover{
+     transform: scale(1.2);
+     transition: 0.2s;
+     padding:20px;
+}
+ .github:hover{
+     transform: scale(1.2);
+     transition: 0.2s;
+     padding:20px;
+}
 /* start responsive design - media queries for a mobile first design */
-@media only screen and (max-width: 600px) {
-	body {
-		width: 100%;
-		background-color: lightblue; /*dark blue color*/
-		overflow: auto;
-	  font-family: 'Varela Round', sans-serif;
-	}
-
-	.top-header {
-		background-color: red;
-	}
-
-	.top-header h1 {
-		font-size: 60pt;
-		padding-top: 20px;
-		color: #DDDDDD;
-		text-align: center;
-		/*light grey*/
-	}
-
-	.top-header p {
-		font-size: 30pt;
-		font-weight: 100;
-		text-align: center;
-		padding-top: 10vh;
-		color: #DDDDDD;
-		/*light grey*/
-	}
-
-	.rory-img {
-		width: 100%;
-		height: auto;
-		border-radius: 5%;
-		perspective: 150px;
-	}
-
-	/* design 1 start */
-
-	.design-1-container { /* The Students Cup */
-		margin-top: 900px;
-		padding-top: 200px;
-	}
-
-	.design-1 {
-		height: 200px;
-		color: #FFF;
-		/*light grey*/
-	}
-
-	.design-1 h1 {
-		font-size: 50pt;
-	}
-
-	.design-1-img img { /* phone image */
-		cursor: crosshair;
-		border: none;
-	}
-
-	.design-1-img img:hover { /* phone image */
-		transform: scale(1.2);
-		transition: 0.2s;
-	}
-	/* design 1 end */
-
-	.prog-bar-section{
-		padding-top:100vh;
-	}
-
-	.footer {
-		padding-bottom: 100px;
-		background-color: #181818;
-		/*dark grey color*/
-		color: #DDDDDD;
-	}
-	.footer ul{
-	  list-style: none;
-	}
-	.behance{
-		width: 40%;
-	}
-	.behance:hover{
-	  transform: scale(1.5);
-		transition: 0.2s;
-	  padding:20px;
-	}
-	.netlify{
-		width: 40%;
-	}
-	.netlify:hover{
-	  transform: scale(1.2);
-		transition: 0.2s;
-	  padding:20px;
-	}
-	.github{
-		width: 40%;
-	}
-	.github:hover{
-	  transform: scale(1.2);
-		transition: 0.2s;
-	  padding:20px;
-	}
-
-	/* design 1 start */
-
-	.design-1-container { /* The Students Cup */
-		padding-top: 20px;
-	}
-
-	.design-1 {
-		padding-top: 10px;
-		text-align: center;
-		color: #FFF;
-		/*light grey*/
-	}
-
-	.design-1 h1 {
-		font-size: 30pt;
-	}
-
-	.design-1-img img { /* phone image */
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.design-1-img img:hover { /* phone image */
-		transform: scale(1.1);
-		transition: 0.2s;
-	}
-	.col-sm-4:hover{
-		transform: scale(1.1);
-		transition: 0.2s;
-		z-index: 1;
-	}
-	/* design 1 end */
+ @media only screen and (max-width: 768px) {
+    /* Primary Colors = #30475E;
+     blue / #f05454;
+     salmon color / #222831;
+     dark blue color / #DDDDDD;
+     light grey */
+     * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+         cursor: none;
+         transition: all 0.5s;
+    }
+     body {
+         min-height: 100vh;
+         width: 100%;
+         background-color: #222831;
+        /*dark blue color*/
+         overflow: auto;
+         font-family: 'Varela Round', sans-serif;
+         line-height: 1.6;
+         color: #FFF;
+    }
+     #circularcursor {
+         position: absolute;
+         width: 15px;
+         height: 15px;
+         background: #fff;
+         border-radius: 50%;
+        /*transform: translate3d(-100%, -90%);
+         */
+         z-index: 2;
+         mix-blend-mode: difference;
+         transition: transform .2s;
+    }
+    /* Marquise, Mathew. 2021. "Inverted Circular Cursor." Codepen. https://codepen.io/mattmarquise/pen/yLVjmOW. */
+    /* start navar section */
+     .navbar a{
+         font-family: 'Lato', sans-serif;
+         line-height: 100%;
+         font-size: 16pt;
+         color: #FFF;
+         text-decoration: none;
+         font-weight: 600;
+    }
+     .container-nav{
+         width: 100%;
+         height: 10vh;
+         position: absolute;
+         z-index: 1;
+    }
+     .hamburger-menu{
+         background-color: #f05454;
+         width: 35px;
+         height: 30px;
+         position: fixed;
+         top: 50px;
+         right: 50px;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-around;
+         border-radius: 10%;
+    }
+     .line{
+         width: 100%;
+         height: 3px;
+         background-color: #dddddd;
+         transition: all 0.9s;
+    }
+     .change .line-1{
+        /* rotation of the burger icon */
+         transform: rotateZ(-405deg) translate(-8px, 6px);
+         background-color: #222831;
+    }
+     .change .line-2{
+         opacity: 0;
+    }
+     .change .line-3{
+         transform: rotateZ(405deg) translate(-8px, -6px);
+         background-color: #222831;
+    }
+     .navbar{
+         background-image: url("../img/profile/gradient.png");
+        /*figure 1. Rory Sargentson, menu Background. 2021, Digital image. */
+         background-repeat: no-repeat;
+         background-size: contain;
+         position: fixed;
+         box-shadow: 10px 10px 5px 10px #000;
+         z-index: 100;
+         width: 600px;
+         height: 100%;
+         background-repeat: no-repeat;
+         position: fixed;
+         background-color: #f05454;
+        /*salmon color*/
+         top: 0;
+         bottom: 300px;
+         right: -600px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         transition: right .5s cubic-bezier(1, 0, 0, 1);
+    }
+     .change{
+         right: 0;
+    }
+     .nav-links{
+         text-align: right;
+    }
+     .nav-item{
+         list-style: none;
+         margin: 25px;
+    }
+     .nav-link{
+         text-decoration: none;
+         font-size: 30px;
+         color:#FFF;
+         letter-spacing: 10px;
+         text-transform: uppercase;
+         position: relative;
+    }
+     .nav-link::before{
+    }
+     .nav-link::after{
+         content: "";
+         width: 100%;
+         height: 5px;
+         border-radius: 5%;
+         background-color: #dddddd;
+         position: absolute;
+         left: 0;
+         transform: scaleX(0);
+         transition: transform 0.5s;
+    }
+     .nav-link::after{
+         bottom: 0;
+         transform-origin: right;
+    }
+     .nav-link::before{
+         top: 0;
+         transform-origin: left;
+    }
+     .nav-link:hover::before{
+    }
+     .nav-link:hover::after{
+         transform: scaleX(1);
+    }
+    /*Code And Create. 2019. Hamburger Menu with HTML, CSS, and JavaScript / Cool Hover Effects with ::after and ::before. YouTube video, 21:25. https://www.youtube.com/watch?v=BN6fH1nRDxA.*/
+    /*end hamburger navbar section*/
+    /* start section snapping code */
+     section {
+         height: 100vh;
+    }
+     span {
+         display: inline-block;
+         font-size: 2em;
+         margin: 32px;
+         opacity: 0;
+         transition: all 0.5s;
+    }
+     .snap-scroll-visible span {
+         margin-top: 16px;
+         opacity: 1;
+    }
+    /* end section snapping code */
+    /* start header section */
+     .top-header {
+         padding-bottom: 100vh;
+         width: 100%;
+         background: linear-gradient(290deg, #222831, #f05454);
+         background-size: 400% 400%;
+         -webkit-animation: AnimationName 10s ease infinite;
+         -moz-animation: AnimationName 10s ease infinite;
+         animation: AnimationName 10s ease infinite;
+    }
+     @-webkit-keyframes AnimationName {
+         0%{
+            background-position:19% 0%
+        }
+         50%{
+            background-position:82% 100%
+        }
+         100%{
+            background-position:19% 0%
+        }
+    }
+     @-moz-keyframes AnimationName {
+         0%{
+            background-position:19% 0%
+        }
+         50%{
+            background-position:82% 100%
+        }
+         100%{
+            background-position:19% 0%
+        }
+    }
+     @keyframes AnimationName {
+         0%{
+            background-position:19% 0%
+        }
+         50%{
+            background-position:82% 100%
+        }
+         100%{
+            background-position:19% 0%
+        }
+        /* background-image: url("../img/profile/desk.png");
+         */
+    }
+     .logo-img{
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+         width: 100%;
+    }
+     .top-header p {
+         font-size: 20pt;
+         text-align: center;
+         padding-top: 20px;
+         color: #DDDDDD;
+        /*light grey*/
+    }
+    /* end header */
+    /* start profile section */
+     .profile{
+         background: linear-gradient(to top left, #222831 50%, #f05454 100%);
+    }
+     .profile h1{
+         color: #FFF;
+         font-size: 30pt;
+         padding-top: 5vh;
+         padding-left: 10vh;
+    }
+     .profile h4{
+         color: #FFF;
+         font-size: 10pt;
+         line-height: 1.9;
+         width: 50%;
+         margin-right: 0;
+    }
+     .rory-img {
+         display: block;
+         margin-top: -400px;
+         margin-left: auto;
+         margin-right: auto;
+         float: right;
+         width: 50%;
+         height: 50%;
+    }
+     .bio-section{
+         padding-top: 1vh;
+    }
+     .bio-section h2{
+         font-size: 10pt;
+         text-align: center;
+         font-weight: bold;
+         background-color: #DDDDDD;
+         color: #222831;
+    }
+     .bio-section p{
+         text-align: center;
+         font-size: 10pt;
+         padding-right: 10px;
+         padding-right: 10px;
+    }
+     .bio-section img{
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+         width: 100%;
+    }
+    /* end bio section */
+    /* design 1 start The Students Cup */
+     .design-1-bg{
+         background-color: #DDDDDD;
+    }
+     .design-1-bg h1{
+         color: #222831;
+    }
+     .design-1-bg h2{
+         color: #222831;
+    }
+     .design-1-bg p{
+         color: #222831;
+    }
+     .design-1-container {
+         margin-top: 500px;
+    }
+     .design-1 {
+         height: 600px;
+    }
+     .design-1 ul{
+         color: #222831;
+    }
+     .design-1 h1 {
+         font-size: 30pt;
+    }
+     .design-1 p {
+         font-size: 10pt;
+         line-height: 1.9;
+         padding-top: 20px;
+    }
+     .design-1-img img {
+        /* phone image */
+    }
+     .design-1-img img:hover {
+        /* phone image */
+         transform: scale(1.2);
+         transition: 0.2s;
+    }
+     .design-grid{
+        /* image grid */
+         height: 100vh;
+         margin-top: 900px;
+         padding-top: 120px;
+    }
+     .col-sm-4:hover{
+         transform: scale(1.5);
+         transition: 0.2s;
+         z-index: 1;
+    }
+     .text-light{
+         text-align: center;
+         font-size: 14pt;
+         margin-top: 8px;
+    }
+     .invision-icon {
+         animation: bounce 2s infinite alternate;
+         -webkit-animation: bounce 1.5s infinite alternate;
+    }
+     @keyframes bounce {
+         from {
+             transform: translateY(0px);
+        }
+         to {
+             transform: translateY(-50px);
+        }
+    }
+     @-webkit-keyframes bounce {
+         from {
+             transform: translateY(0px);
+        }
+         to {
+             transform: translateY(-50px);
+        }
+    }
+    /* Persijin. 2015, "CSS smooth bounce animation." Stack Overflow. https://stackoverflow.com/questions/32306089/css-smooth-bounce-animation */
+    /* design 1 end */
+    /*start design 2 */
+     .design-2-b{
+         background-color: #30475E;
+    }
+     .design-2-container {
+         margin-top: 900px;
+    }
+     .design-2 {
+         height: 200px;
+         color: #FFF;
+    }
+     .design-2 h1 {
+         font-size: 30pt;
+    }
+     .design-2 p {
+         font-size: 10pt;
+         line-height: 1.9;
+         padding-top: 20px;
+    }
+     .design-2-img img{
+         width: 50%;
+    }
+    /* ipad image */
+     .design-2-img img:hover {
+        /* ipad image */
+         transform: scale(1.2);
+         transition: 0.2s;
+    }
+     .design-2-end{
+    }
+     .oua.bg{
+         width: 100%;
+         opacity: 50%;
+         z-index: -1;
+    }
+     .ipad-img{
+         margin-left: 50px;
+    }
+     .inv-btn:hover{
+         transform: scale(1.2);
+         transition: 0.2s;
+    }
+    /* design 2 end */
+    /*start design 3 kitsune */
+     .design-3-bg{
+         background: linear-gradient(to top left, #9900cc 0%, #6666ff 100%);
+    }
+     .design-3-container {
+         margin-top: 900px;
+    }
+     .design-3 {
+         height: 200px;
+         color: #FFF;
+    }
+     .design-3 h1 {
+         font-size: 30pt;
+    }
+     .design-3 p {
+         font-size: 10pt;
+         line-height: 1.9;
+         padding-top: 20px;
+    }
+     .design-3-img img:hover {
+        /* phone image */
+         transform: scale(1.2);
+         transition: 0.2s;
+    }
+     .ktn-top-collab img{
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+         width: 100%;
+         padding-bottom: 50px;
+    }
+     .ktn-top-collab img:hover{
+         transform: scale(1.5);
+         transition: 0.2s;
+    }
+     .ktn-collab img{
+         display: flex;
+         margin-left: auto;
+         margin-right: auto;
+         width: 10%;
+         height: 10%;
+    }
+     .ktn-collab img:hover{
+         transform: scale(1.5);
+         transition: 0.2s;
+    }
+     .h2-sml{
+         font-size: 10pt;
+         padding-top:20px;
+    }
+     .netlify-icon {
+         animation: bounce 2s infinite alternate;
+         -webkit-animation: bounce 1.5s infinite alternate;
+    }
+     @keyframes bounce {
+         from {
+             transform: translateX(5px);
+        }
+         to {
+             transform: translateX(-25px);
+        }
+    }
+     @keyframes bounce {
+         from {
+             transform: translateY(0px);
+        }
+         to {
+             transform: translateY(-50px);
+        }
+    }
+     @-webkit-keyframes bounce {
+         from {
+             transform: translateY(0px);
+        }
+         to {
+             transform: translateY(-50px);
+        }
+    }
+    /* end design 3 */
+    /*start design 4 shizen mask co */
+     .smc-bg{
+         background: linear-gradient(to top right, #003399 3%, #6699ff 47%);
+    }
+     .design-4-bg h1{
+         color: #FFF;
+    }
+     .design-4-bg h2{
+         color: #FFF;
+    }
+     .design-4-bg p{
+         color: #FFF;
+    }
+     .design-4-container {
+         margin-top: 900px;
+    }
+     .design-4-container h2 {
+         font-size: 10pt;
+         padding-top: 15px;
+    }
+     .design-4 {
+         height: 200px;
+    }
+     .design-4 ul{
+         color: #FFF;
+    }
+     .design-4 h1 {
+         font-size: 30pt;
+    }
+     .design-4 p {
+         font-size: 10pt;
+         line-height: 1.9;
+         padding-top: 20px;
+    }
+     .design-4-img svg {
+         margin-top: -10vh;
+        /* mask image */
+    }
+     .design-grid-4{
+         height: 100vh;
+         margin-top: 900px;
+         padding-top: 160px;
+    }
+     .design-4-img svg:hover {
+        /* phone image */
+         transform: scale(1.2);
+         transition: 0.2s;
+    }
+     .design-grid-4{
+        /* image grid */
+         height: 100vh;
+         margin-top: 900px;
+         padding-top: 120px;
+    }
+     .design-grid-4 p {
+         color: #222831;
+    }
+     .col-sm-4:hover{
+         transform: scale(1.5);
+         transition: 0.2s;
+         z-index: 1;
+    }
+     .text-light{
+         text-align: center;
+         font-size: 10pt;
+         margin-top: 8px;
+    }
+     .smc-collab img{
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+         width: 100%;
+    }
+     .smc-collab img{
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+         width: 100%;
+    }
+     .smc-collab img:hover{
+         transform: scale(1.5);
+         transition: 0.2s;
+    }
+     .smc-collab-2 img{
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+         width: 100%;
+    }
+     .smc-collab-2 img:hover{
+         transform: scale(1.3);
+         transition: 0.2s;
+    }
+     .smc-top-collab img{
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+         width: 100%;
+         padding-bottom: 50px;
+    }
+     .smc-top-collab h1{
+         padding-top: 20px;
+    }
+    /* design 4 end */
+    /*start design 5 section */
+    /* design 1 start cg */
+     .design-5-bg{
+         background: linear-gradient(to bottom right, #ff6699 -7%, #6600cc 105%);
+    }
+     .design-5-container {
+         margin-top: 100vh;
+         padding-top: 200px;
+    }
+     .design-5 h1 {
+         font-size: 30pt;
+    }
+     .design-5 p {
+         font-size: 10pt;
+         line-height: 1.9;
+         padding-top: 20px;
+    }
+     .design-5-img img {
+        /* phone image */
+    }
+     .design-5-img img:hover {
+        /* phone image */
+         transform: scale(1.2);
+         transition: 0.2s;
+    }
+     .design-grid-cg{
+        /* image grid */
+         height: 100vh;
+         margin-top: 900px;
+         padding-top: 220px;
+    }
+     .design-grid-cg-2{
+        /* image grid */
+         height: 100vh;
+         margin-top: 900px;
+         padding-top: 220px;
+    }
+     .col-sm-4:hover{
+         transform: scale(1.5);
+         transition: 0.2s;
+         z-index: 1;
+    }
+     .text-light{
+         text-align: center;
+         font-size: 14pt;
+         margin-top: 8px;
+    }
+     .behance-icon {
+         animation: bounce 2s infinite alternate;
+         -webkit-animation: bounce 1.5s infinite alternate;
+    }
+     @keyframes bounce {
+         from {
+             transform: translateY(0px);
+        }
+         to {
+             transform: translateY(-50px);
+        }
+    }
+     @-webkit-keyframes bounce {
+         from {
+             transform: translateY(0px);
+        }
+         to {
+             transform: translateY(-50px);
+        }
+    }
+    /* Persijin. 2015, "CSS smooth bounce animation." Stack Overflow. https://stackoverflow.com/questions/32306089/css-smooth-bounce-animation */
+    /* design 5 end */
+    /* contact section */
+     .contact-container {
+         padding-top: 200px;
+         padding-left: 5vh;
+         text-decoration: none;
+         background: linear-gradient(290deg, #222831, #f05454);
+         background-size: 400% 400%;
+         -webkit-animation: AnimationName 10s ease infinite;
+         -moz-animation: AnimationName 10s ease infinite;
+         animation: AnimationName 10s ease infinite;
+    }
+     @-webkit-keyframes AnimationName {
+         0%{
+            background-position:19% 0%
+        }
+         50%{
+            background-position:82% 100%
+        }
+         100%{
+            background-position:19% 0%
+        }
+    }
+     @-moz-keyframes AnimationName {
+         0%{
+            background-position:19% 0%
+        }
+         50%{
+            background-position:82% 100%
+        }
+         100%{
+            background-position:19% 0%
+        }
+    }
+     @keyframes AnimationName {
+         0%{
+            background-position:19% 0%
+        }
+         50%{
+            background-position:82% 100%
+        }
+         100%{
+            background-position:19% 0%
+        }
+    }
+    /* end contact section */
+     .behance:hover{
+         transform: scale(1.2);
+         transition: 0.2s;
+         padding:20px;
+    }
+     .netlify:hover{
+         transform: scale(1.2);
+         transition: 0.2s;
+         padding:20px;
+    }
+     .github:hover{
+         transform: scale(1.2);
+         transition: 0.2s;
+         padding:20px;
+    }
 }
+ 
